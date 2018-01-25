@@ -9,7 +9,7 @@
 
 
 void print_dfs(struct task_struct *task) {
-  printk(KERN_INFO "name: %s, state: %ld, pid:%d", task->comm, task->state, task->pid); // print this task
+  printk(KERN_INFO "name: %s, state: %ld, pid:%d, parent: %d", task->comm, task->state, task->pid, task->parent->pid); // print this task
   
   struct task_struct *child;
   struct list_head *list;
