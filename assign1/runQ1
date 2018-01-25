@@ -2,4 +2,4 @@ dmesg -c
 make
 insmod q1.ko
 rmmod q1
-dmesg
+dmesg > q1output.txt
