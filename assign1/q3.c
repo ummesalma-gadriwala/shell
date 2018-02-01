@@ -2,11 +2,17 @@
 #include <pthread.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <semaphore.h> 
 
 //
 int numbersToPrint = 1;
+
+//for locking
 pthread_mutex_t mutex;
-//int rc;
+
+//for synchronizing
+sem_t sem;
+
 
 void *Even(void *p1);
 void *Odd(void *p2);
@@ -28,6 +34,8 @@ void main(void){
 
 	
 	printf("%s","Finished printing numbers 1-100\n");
+	
+	sem_destroy(&sem);
 }
 
 void *Odd(void *p2){
@@ -38,11 +46,16 @@ void *Odd(void *p2){
 			numbersToPrint++;
 		}else{
 			pthread_mutex_unlock(&mutex);//release lock
+			//signal thread o run
+			sem_post(&sem);
 		}
 	}
 }
 
 void *Even(void *p1){
+	
+	//wait for signal
+	sem_wait(&sem);
 	pthread_mutex_lock(&mutex);
 	while(numbersToPrint <= 100){
 		if(numbersToPrint % 2 == 0){
