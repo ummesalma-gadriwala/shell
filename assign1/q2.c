@@ -5,8 +5,16 @@
 
 #define MAX_LINE 80
 
-void parse(char buffer[], char *args[]) {
-	printf("printing " ); printf(buffer);
+void parse(char *buffer, char **args) {
+     while (*buffer != '\0') {        
+          while (*buffer == ' ' || *buffer == '\t' || *buffer == '\n')
+               *buffer++ = '\0';     
+          *args++ = buffer;         
+          while (*buffer != '\0' && *buffer != ' ' && 
+                 *buffer != '\t' && *buffer != '\n') 
+               buffer++;             
+     }
+     *args = '\0';                 
 }
 
 int main(void) {
@@ -18,21 +26,26 @@ int main(void) {
 		printf("osh>");
 		gets(buffer);
 
-//		fflush(stdout);
+		//fflush(stdout);
 		parse(buffer, args);
-		if (strcmp(args[0], "exit") == 0)
+		if (strcmp(args[0], "exit") == 0) {
 			should_run = 0;
+		} else {
 	/**
 	* (1) Fork child process using fork()
 	* (2) The child process will invoke execvp()
 	* (3) if command included &, parent will invoke wait()
 	*/	
 		
-		pid = fork();
-		if (pid == 0) { // child process
-			execvp(args[0], args);
-		} else {	// parent process waits for child to execute
-			wait();
+			pid = fork();
+			if (pid == 0) { // child process
+				int status = execvp(args[0], args);
+				if (status == -1)
+					printf("Error occured\n");
+					should_run = 0;
+			} else {	// parent process waits for child to execute
+				wait();
+			}
 		}
 	}
 	return 0;
