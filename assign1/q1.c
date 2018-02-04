@@ -32,8 +32,8 @@ int simple_init(void)
 }
 
 /* This function is called when the module is removed. */
-void simple_exit(void)
-{ printk(KERN_INFO "Removing Module\n");
+void simple_exit(void){ 
+	printk(KERN_INFO "Removing Module\n");
 }
 /* Macros for registering module entry and exit points. */
 module_init(simple_init);
