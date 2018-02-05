@@ -24,12 +24,14 @@ int main(void) {
 	int should_run = 1;
 	int child_with_parent = 0;
 	char buffer[MAX_LINE];
+	int length;
 	pid_t pid;
 	while (should_run) {
 		printf("osh>");
-		gets(buffer);
+		//gets(buffer);
 
-		//fflush(stdout);
+		fflush(stdout);
+		length = read(STDIN_FILENO, inputBuffer, MAX_LINE);
 		parse(buffer, args, &child_with_parent);
 		if (strcmp(args[0], "exit") == 0) {
 			should_run = 0;
