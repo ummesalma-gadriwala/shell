@@ -5,7 +5,7 @@
 
 #define MAX_LINE 80
 
-void parse(char *buffer, char **args) {
+void parse(char *buffer, char **args, int *child_with_parent) {
      while (*buffer != '\0') {        
           while (*buffer == ' ' || *buffer == '\t' || *buffer == '\n')
                *buffer++ = '\0';     
@@ -14,12 +14,15 @@ void parse(char *buffer, char **args) {
                  *buffer != '\t' && *buffer != '\n') 
                buffer++;             
      }
+     if (*buffer == '&')
+     	*child_with_parent = 1;
      *args = '\0';                 
 }
 
 int main(void) {
 	char *args[MAX_LINE/2 +1];
 	int should_run = 1;
+	int child_with_parent = 0;
 	char buffer[MAX_LINE];
 	pid_t pid;
 	while (should_run) {
@@ -27,7 +30,7 @@ int main(void) {
 		gets(buffer);
 
 		//fflush(stdout);
-		parse(buffer, args);
+		parse(buffer, args, &child_with_parent);
 		if (strcmp(args[0], "exit") == 0) {
 			should_run = 0;
 		} else {
@@ -43,8 +46,9 @@ int main(void) {
 				if (status == -1)
 					printf("Error occured\n");
 					should_run = 0;
-			} else {	// parent process waits for child to execute
-				wait();
+			} else {	// parent process 
+				if (child_with_parent == 0)
+					wait();
 			}
 		}
 	}
