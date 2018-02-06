@@ -1,150 +1,155 @@
-[ 1266.291872] Loading Module
-[ 1266.291876] name: swapper/0, state: 0, pid:0, parent: 0
-[ 1266.291877] name: systemd, state: 1, pid:1, parent: 0
-[ 1266.291879] name: systemd-journal, state: 1, pid:138, parent: 1
-[ 1266.291880] name: systemd-udevd, state: 1, pid:155, parent: 1
-[ 1266.291881] name: systemd-udevd, state: 0, pid:3287, parent: 155
-[ 1266.291882] name: rpcbind, state: 1, pid:368, parent: 1
-[ 1266.291883] name: rpc.statd, state: 1, pid:388, parent: 1
-[ 1266.291884] name: rpc.idmapd, state: 1, pid:405, parent: 1
-[ 1266.291885] name: accounts-daemon, state: 1, pid:407, parent: 1
-[ 1266.291886] name: cron, state: 1, pid:408, parent: 1
-[ 1266.291887] name: ModemManager, state: 1, pid:409, parent: 1
-[ 1266.291888] name: NetworkManager, state: 1, pid:411, parent: 1
-[ 1266.291889] name: dhclient, state: 1, pid:630, parent: 411
-[ 1266.291890] name: sshd, state: 1, pid:412, parent: 1
-[ 1266.291891] name: atd, state: 1, pid:413, parent: 1
-[ 1266.291892] name: systemd-logind, state: 1, pid:416, parent: 1
-[ 1266.291893] name: avahi-daemon, state: 1, pid:422, parent: 1
-[ 1266.291894] name: avahi-daemon, state: 1, pid:445, parent: 422
-[ 1266.291895] name: dbus-daemon, state: 1, pid:423, parent: 1
-[ 1266.291896] name: minissdpd, state: 1, pid:438, parent: 1
-[ 1266.291897] name: rsyslogd, state: 1, pid:484, parent: 1
-[ 1266.291898] name: acpid, state: 1, pid:487, parent: 1
-[ 1266.291899] name: cupsd, state: 1, pid:488, parent: 1
-[ 1266.291900] name: cups-browsed, state: 1, pid:489, parent: 1
-[ 1266.291901] name: polkitd, state: 1, pid:514, parent: 1
-[ 1266.291902] name: agetty, state: 1, pid:515, parent: 1
-[ 1266.291903] name: gdm3, state: 1, pid:761, parent: 1
-[ 1266.291904] name: Xorg, state: 1, pid:781, parent: 761
-[ 1266.291905] name: gdm-session-wor, state: 1, pid:954, parent: 761
-[ 1266.291906] name: x-session-manag, state: 1, pid:965, parent: 954
-[ 1266.291907] name: ssh-agent, state: 1, pid:1036, parent: 965
-[ 1266.291908] name: gnome-settings-, state: 1, pid:1065, parent: 965
-[ 1266.291909] name: gnome-shell, state: 1, pid:1141, parent: 965
-[ 1266.291910] name: evolution-alarm, state: 1, pid:1320, parent: 965
-[ 1266.291911] name: nm-applet, state: 1, pid:1321, parent: 965
-[ 1266.291912] name: tracker-miner-u, state: 1, pid:1323, parent: 965
-[ 1266.291913] name: nautilus, state: 1, pid:1337, parent: 965
-[ 1266.291914] name: tracker-extract, state: 1, pid:1343, parent: 965
-[ 1266.291915] name: zeitgeist-datah, state: 1, pid:1351, parent: 965
-[ 1266.291916] name: tracker-miner-f, state: 1, pid:1359, parent: 965
-[ 1266.291917] name: tracker-miner-a, state: 1, pid:1363, parent: 965
-[ 1266.291918] name: applet.py, state: 1, pid:1381, parent: 965
-[ 1266.291919] name: gdm-session-wor, state: 1, pid:2318, parent: 954
-[ 1266.291920] name: exim4, state: 1, pid:785, parent: 1
-[ 1266.291921] name: VBoxService, state: 1, pid:790, parent: 1
-[ 1266.291922] name: systemd, state: 1, pid:857, parent: 1
-[ 1266.291923] name: (sd-pam), state: 1, pid:858, parent: 857
-[ 1266.291924] name: upowerd, state: 1, pid:892, parent: 1
-[ 1266.291925] name: colord, state: 1, pid:901, parent: 1
-[ 1266.291926] name: rtkit-daemon, state: 1, pid:911, parent: 1
-[ 1266.291927] name: pulseaudio, state: 1, pid:910, parent: 1
-[ 1266.291928] name: wpa_supplicant, state: 1, pid:939, parent: 1
-[ 1266.291929] name: packagekitd, state: 1, pid:942, parent: 1
-[ 1266.291930] name: systemd, state: 1, pid:957, parent: 1
-[ 1266.291931] name: (sd-pam), state: 1, pid:958, parent: 957
-[ 1266.291931] name: gnome-keyring-d, state: 1, pid:962, parent: 1
-[ 1266.291933] name: VBoxClient, state: 1, pid:1007, parent: 1
-[ 1266.291934] name: VBoxClient, state: 1, pid:1008, parent: 1007
-[ 1266.291935] name: VBoxClient, state: 1, pid:1017, parent: 1
-[ 1266.291935] name: VBoxClient, state: 1, pid:1018, parent: 1017
-[ 1266.291937] name: VBoxClient, state: 1, pid:1023, parent: 1
-[ 1266.291937] name: VBoxClient, state: 1, pid:1024, parent: 1023
-[ 1266.291938] name: VBoxClient, state: 1, pid:1027, parent: 1
-[ 1266.291939] name: VBoxClient, state: 1, pid:1028, parent: 1027
-[ 1266.291940] name: dbus-daemon, state: 1, pid:1042, parent: 1
-[ 1266.291941] name: dbus-launch, state: 1, pid:1040, parent: 1
-[ 1266.291942] name: at-spi-bus-laun, state: 1, pid:1045, parent: 1
-[ 1266.291943] name: dbus-daemon, state: 1, pid:1049, parent: 1045
-[ 1266.291944] name: at-spi2-registr, state: 1, pid:1053, parent: 1
-[ 1266.291945] name: pulseaudio, state: 1, pid:1079, parent: 1
-[ 1266.291946] name: gvfsd, state: 1, pid:1085, parent: 1
-[ 1266.291947] name: gvfsd-fuse, state: 1, pid:1091, parent: 1
-[ 1266.291948] name: start-pulseaudi, state: 1, pid:1094, parent: 1
-[ 1266.291949] name: xprop, state: 1, pid:1095, parent: 1094
-[ 1266.291950] name: udisksd, state: 1, pid:1104, parent: 1
-[ 1266.291951] name: gvfs-udisks2-vo, state: 1, pid:1102, parent: 1
-[ 1266.291952] name: goa-daemon, state: 1, pid:1116, parent: 1
-[ 1266.291953] name: gvfs-goa-volume, state: 1, pid:1113, parent: 1
-[ 1266.291954] name: gvfs-gphoto2-vo, state: 1, pid:1126, parent: 1
-[ 1266.291955] name: gvfs-mtp-volume, state: 1, pid:1131, parent: 1
-[ 1266.291956] name: mission-control, state: 1, pid:1125, parent: 1
-[ 1266.291957] name: gvfs-afc-volume, state: 1, pid:1137, parent: 1
-[ 1266.291958] name: gsd-printer, state: 1, pid:1145, parent: 1
-[ 1266.291959] name: evolution-sourc, state: 1, pid:1307, parent: 1
-[ 1266.291960] name: gnome-shell-cal, state: 1, pid:1303, parent: 1
-[ 1266.291961] name: tracker-store, state: 1, pid:1342, parent: 1
-[ 1266.291962] name: zeitgeist-daemo, state: 1, pid:1375, parent: 1
-[ 1266.291963] name: zeitgeist-fts, state: 1, pid:1388, parent: 1
-[ 1266.291964] name: cat, state: 1, pid:1393, parent: 1388
-[ 1266.291965] name: gconfd-2, state: 1, pid:1403, parent: 1
-[ 1266.291966] name: gvfsd-trash, state: 1, pid:1415, parent: 1
-[ 1266.291967] name: gvfsd-metadata, state: 1, pid:1435, parent: 1
-[ 1266.291968] name: evolution-calen, state: 1, pid:1410, parent: 1
-[ 1266.291968] name: gvfsd-burn, state: 1, pid:1463, parent: 1
-[ 1266.291969] name: dconf-service, state: 1, pid:1541, parent: 1
-[ 1266.291970] name: gnome-terminal-, state: 1, pid:2971, parent: 1
-[ 1266.291971] name: gnome-pty-helpe, state: 1, pid:2974, parent: 2971
-[ 1266.291974] name: bash, state: 1, pid:2975, parent: 2971
-[ 1266.291975] name: sudo, state: 1, pid:2981, parent: 2975
-[ 1266.291976] name: bash, state: 1, pid:2982, parent: 2981
-[ 1266.291996] name: bash, state: 1, pid:2987, parent: 2982
-[ 1266.291997] name: insmod, state: 0, pid:3286, parent: 2987
-[ 1266.291998] name: kthreadd, state: 1, pid:2, parent: 0
-[ 1266.291999] name: ksoftirqd/0, state: 1, pid:3, parent: 2
-[ 1266.292000] name: kworker/0:0H, state: 1, pid:5, parent: 2
-[ 1266.292001] name: kworker/u2:0, state: 1, pid:6, parent: 2
-[ 1266.292002] name: rcu_sched, state: 1, pid:7, parent: 2
-[ 1266.292003] name: rcu_bh, state: 1, pid:8, parent: 2
-[ 1266.292004] name: migration/0, state: 1, pid:9, parent: 2
-[ 1266.292005] name: watchdog/0, state: 1, pid:10, parent: 2
-[ 1266.292006] name: khelper, state: 1, pid:11, parent: 2
-[ 1266.292007] name: kdevtmpfs, state: 1, pid:12, parent: 2
-[ 1266.292008] name: netns, state: 1, pid:13, parent: 2
-[ 1266.292009] name: khungtaskd, state: 1, pid:14, parent: 2
-[ 1266.292010] name: writeback, state: 1, pid:15, parent: 2
-[ 1266.292010] name: ksmd, state: 1, pid:16, parent: 2
-[ 1266.292011] name: khugepaged, state: 1, pid:17, parent: 2
-[ 1266.292012] name: crypto, state: 1, pid:18, parent: 2
-[ 1266.292013] name: kintegrityd, state: 1, pid:19, parent: 2
-[ 1266.292014] name: bioset, state: 1, pid:20, parent: 2
-[ 1266.292015] name: kblockd, state: 1, pid:21, parent: 2
-[ 1266.292016] name: kswapd0, state: 1, pid:23, parent: 2
-[ 1266.292017] name: fsnotify_mark, state: 1, pid:24, parent: 2
-[ 1266.292018] name: kthrotld, state: 1, pid:30, parent: 2
-[ 1266.292019] name: ipv6_addrconf, state: 1, pid:31, parent: 2
-[ 1266.292020] name: deferwq, state: 1, pid:32, parent: 2
-[ 1266.292021] name: khubd, state: 1, pid:66, parent: 2
-[ 1266.292021] name: ata_sff, state: 1, pid:67, parent: 2
-[ 1266.292022] name: scsi_eh_0, state: 1, pid:69, parent: 2
-[ 1266.292023] name: scsi_tmf_0, state: 1, pid:70, parent: 2
-[ 1266.292024] name: scsi_eh_1, state: 1, pid:71, parent: 2
-[ 1266.292025] name: kworker/u2:2, state: 1, pid:72, parent: 2
-[ 1266.292026] name: scsi_tmf_1, state: 1, pid:73, parent: 2
-[ 1266.292027] name: scsi_eh_2, state: 1, pid:74, parent: 2
-[ 1266.292028] name: scsi_tmf_2, state: 1, pid:75, parent: 2
-[ 1266.292029] name: kworker/0:1H, state: 1, pid:82, parent: 2
-[ 1266.292030] name: jbd2/sda1-8, state: 1, pid:105, parent: 2
-[ 1266.292031] name: ext4-rsv-conver, state: 1, pid:106, parent: 2
-[ 1266.292032] name: kauditd, state: 1, pid:137, parent: 2
-[ 1266.292032] name: kworker/0:3, state: 1, pid:139, parent: 2
-[ 1266.292033] name: kpsmoused, state: 1, pid:189, parent: 2
-[ 1266.292034] name: iprt-VBoxWQueue, state: 1, pid:191, parent: 2
-[ 1266.292035] name: rpciod, state: 1, pid:393, parent: 2
-[ 1266.292036] name: nfsiod, state: 1, pid:395, parent: 2
-[ 1266.292037] name: cfg80211, state: 1, pid:499, parent: 2
-[ 1266.292038] name: kworker/0:0, state: 1, pid:2332, parent: 2
-[ 1266.292039] name: kworker/u2:1, state: 1, pid:2956, parent: 2
-[ 1266.292040] name: kworker/0:1, state: 1, pid:2968, parent: 2
-[ 1266.302745] Removing Module
+[19875.374357] Loading Module
+[19875.374362] name: swapper/0, state: 0, pid:0, parent: 0
+[19875.374364] name: systemd, state: 1, pid:1, parent: 0
+[19875.374367] name: systemd-journal, state: 1, pid:141, parent: 1
+[19875.374368] name: systemd-udevd, state: 130, pid:150, parent: 1
+[19875.374370] name: rpcbind, state: 1, pid:377, parent: 1
+[19875.374372] name: rpc.statd, state: 1, pid:388, parent: 1
+[19875.374373] name: rpc.idmapd, state: 1, pid:402, parent: 1
+[19875.374375] name: accounts-daemon, state: 1, pid:404, parent: 1
+[19875.374376] name: cron, state: 1, pid:405, parent: 1
+[19875.374378] name: ModemManager, state: 1, pid:406, parent: 1
+[19875.374380] name: NetworkManager, state: 1, pid:408, parent: 1
+[19875.374381] name: dhclient, state: 1, pid:3305, parent: 408
+[19875.374383] name: sshd, state: 1, pid:410, parent: 1
+[19875.374385] name: atd, state: 1, pid:411, parent: 1
+[19875.374386] name: systemd-logind, state: 1, pid:414, parent: 1
+[19875.374388] name: avahi-daemon, state: 1, pid:423, parent: 1
+[19875.374389] name: avahi-daemon, state: 1, pid:437, parent: 423
+[19875.374391] name: dbus-daemon, state: 1, pid:424, parent: 1
+[19875.374393] name: rsyslogd, state: 1, pid:467, parent: 1
+[19875.374394] name: minissdpd, state: 1, pid:477, parent: 1
+[19875.374396] name: acpid, state: 1, pid:483, parent: 1
+[19875.374397] name: cupsd, state: 1, pid:484, parent: 1
+[19875.374399] name: cups-browsed, state: 1, pid:485, parent: 1
+[19875.374400] name: polkitd, state: 1, pid:527, parent: 1
+[19875.374401] name: agetty, state: 1, pid:528, parent: 1
+[19875.374403] name: exim4, state: 1, pid:803, parent: 1
+[19875.374404] name: gdm3, state: 1, pid:809, parent: 1
+[19875.374406] name: Xorg, state: 1, pid:827, parent: 809
+[19875.374408] name: gdm-session-wor, state: 1, pid:958, parent: 809
+[19875.374409] name: x-session-manag, state: 1, pid:970, parent: 958
+[19875.374411] name: ssh-agent, state: 1, pid:1042, parent: 970
+[19875.374413] name: gnome-settings-, state: 1, pid:1071, parent: 970
+[19875.374414] name: gnome-shell, state: 1, pid:1147, parent: 970
+[19875.374416] name: evolution-alarm, state: 1, pid:1326, parent: 970
+[19875.374417] name: nm-applet, state: 1, pid:1327, parent: 970
+[19875.374419] name: tracker-miner-u, state: 1, pid:1329, parent: 970
+[19875.374421] name: nautilus, state: 1, pid:1335, parent: 970
+[19875.374422] name: tracker-extract, state: 1, pid:1338, parent: 970
+[19875.374424] name: zeitgeist-datah, state: 1, pid:1349, parent: 970
+[19875.374425] name: tracker-miner-f, state: 1, pid:1357, parent: 970
+[19875.374427] name: tracker-miner-a, state: 1, pid:1361, parent: 970
+[19875.374428] name: applet.py, state: 1, pid:1369, parent: 970
+[19875.374430] name: gdm-session-wor, state: 1, pid:3405, parent: 958
+[19875.374431] name: gdm-session-wor, state: 1, pid:3440, parent: 958
+[19875.374433] name: gdm-session-wor, state: 1, pid:3474, parent: 958
+[19875.374436] name: gdm-session-wor, state: 1, pid:3577, parent: 958
+[19875.374438] name: gdm-session-wor, state: 1, pid:3604, parent: 958
+[19875.374440] name: gdm-session-wor, state: 1, pid:3645, parent: 958
+[19875.374442] name: VBoxService, state: 1, pid:818, parent: 1
+[19875.374443] name: systemd, state: 1, pid:858, parent: 1
+[19875.374445] name: (sd-pam), state: 1, pid:859, parent: 858
+[19875.374446] name: upowerd, state: 1, pid:889, parent: 1
+[19875.374448] name: colord, state: 1, pid:898, parent: 1
+[19875.374449] name: rtkit-daemon, state: 1, pid:907, parent: 1
+[19875.374451] name: pulseaudio, state: 1, pid:906, parent: 1
+[19875.374452] name: wpa_supplicant, state: 1, pid:936, parent: 1
+[19875.374454] name: packagekitd, state: 1, pid:939, parent: 1
+[19875.374455] name: systemd, state: 1, pid:962, parent: 1
+[19875.374457] name: (sd-pam), state: 1, pid:963, parent: 962
+[19875.374459] name: gnome-keyring-d, state: 1, pid:967, parent: 1
+[19875.374460] name: VBoxClient, state: 1, pid:1013, parent: 1
+[19875.374461] name: VBoxClient, state: 1, pid:1015, parent: 1013
+[19875.374463] name: VBoxClient, state: 1, pid:1024, parent: 1
+[19875.374465] name: VBoxClient, state: 1, pid:1025, parent: 1024
+[19875.374466] name: VBoxClient, state: 1, pid:1031, parent: 1
+[19875.374468] name: VBoxClient, state: 1, pid:1033, parent: 1031
+[19875.374469] name: VBoxClient, state: 1, pid:1039, parent: 1
+[19875.374471] name: VBoxClient, state: 1, pid:1041, parent: 1039
+[19875.374472] name: dbus-daemon, state: 1, pid:1048, parent: 1
+[19875.374474] name: dbus-launch, state: 1, pid:1046, parent: 1
+[19875.374476] name: at-spi-bus-laun, state: 1, pid:1051, parent: 1
+[19875.374477] name: dbus-daemon, state: 1, pid:1055, parent: 1051
+[19875.374479] name: at-spi2-registr, state: 1, pid:1059, parent: 1
+[19875.374480] name: pulseaudio, state: 1, pid:1086, parent: 1
+[19875.374482] name: gvfsd, state: 1, pid:1092, parent: 1
+[19875.374483] name: start-pulseaudi, state: 1, pid:1097, parent: 1
+[19875.374485] name: xprop, state: 1, pid:1098, parent: 1097
+[19875.374486] name: gvfsd-fuse, state: 1, pid:1100, parent: 1
+[19875.374488] name: udisksd, state: 1, pid:1110, parent: 1
+[19875.374489] name: gvfs-udisks2-vo, state: 1, pid:1108, parent: 1
+[19875.374491] name: goa-daemon, state: 1, pid:1122, parent: 1
+[19875.374492] name: gvfs-goa-volume, state: 1, pid:1119, parent: 1
+[19875.374494] name: gvfs-gphoto2-vo, state: 1, pid:1132, parent: 1
+[19875.374495] name: gvfs-mtp-volume, state: 1, pid:1138, parent: 1
+[19875.374497] name: mission-control, state: 1, pid:1131, parent: 1
+[19875.374498] name: gvfs-afc-volume, state: 1, pid:1143, parent: 1
+[19875.374500] name: gsd-printer, state: 1, pid:1152, parent: 1
+[19875.374501] name: evolution-sourc, state: 1, pid:1306, parent: 1
+[19875.374503] name: gnome-shell-cal, state: 1, pid:1295, parent: 1
+[19875.374504] name: tracker-store, state: 1, pid:1344, parent: 1
+[19875.374506] name: zeitgeist-daemo, state: 1, pid:1377, parent: 1
+[19875.374507] name: zeitgeist-fts, state: 1, pid:1394, parent: 1
+[19875.374509] name: cat, state: 1, pid:1404, parent: 1394
+[19875.374510] name: gconfd-2, state: 1, pid:1413, parent: 1
+[19875.374512] name: gvfsd-trash, state: 1, pid:1422, parent: 1
+[19875.374513] name: evolution-calen, state: 1, pid:1410, parent: 1
+[19875.374514] name: gvfsd-burn, state: 1, pid:1451, parent: 1
+[19875.374516] name: gvfsd-metadata, state: 1, pid:1456, parent: 1
+[19875.374518] name: dconf-service, state: 1, pid:1490, parent: 1
+[19875.374519] name: gnome-terminal-, state: 1, pid:3658, parent: 1
+[19875.374521] name: gnome-pty-helpe, state: 1, pid:3661, parent: 3658
+[19875.374522] name: bash, state: 1, pid:3662, parent: 3658
+[19875.374524] name: sudo, state: 1, pid:4049, parent: 3662
+[19875.374525] name: bash, state: 1, pid:4050, parent: 4049
+[19875.374527] name: bash, state: 1, pid:4054, parent: 4050
+[19875.374528] name: insmod, state: 0, pid:4330, parent: 4054
+[19875.374530] name: kthreadd, state: 1, pid:2, parent: 0
+[19875.374531] name: ksoftirqd/0, state: 1, pid:3, parent: 2
+[19875.374533] name: kworker/0:0H, state: 1, pid:5, parent: 2
+[19875.374534] name: kworker/u2:0, state: 1, pid:6, parent: 2
+[19875.374536] name: rcu_sched, state: 1, pid:7, parent: 2
+[19875.374537] name: rcu_bh, state: 1, pid:8, parent: 2
+[19875.374539] name: migration/0, state: 1, pid:9, parent: 2
+[19875.374540] name: watchdog/0, state: 1, pid:10, parent: 2
+[19875.374543] name: khelper, state: 1, pid:11, parent: 2
+[19875.374545] name: kdevtmpfs, state: 1, pid:12, parent: 2
+[19875.374546] name: netns, state: 1, pid:13, parent: 2
+[19875.374548] name: khungtaskd, state: 1, pid:14, parent: 2
+[19875.374549] name: writeback, state: 1, pid:15, parent: 2
+[19875.374551] name: ksmd, state: 1, pid:16, parent: 2
+[19875.374552] name: khugepaged, state: 1, pid:17, parent: 2
+[19875.374554] name: crypto, state: 1, pid:18, parent: 2
+[19875.374555] name: kintegrityd, state: 1, pid:19, parent: 2
+[19875.374556] name: bioset, state: 1, pid:20, parent: 2
+[19875.374558] name: kblockd, state: 1, pid:21, parent: 2
+[19875.374560] name: kswapd0, state: 1, pid:23, parent: 2
+[19875.374561] name: fsnotify_mark, state: 1, pid:24, parent: 2
+[19875.374563] name: kthrotld, state: 1, pid:30, parent: 2
+[19875.374564] name: ipv6_addrconf, state: 1, pid:31, parent: 2
+[19875.374565] name: deferwq, state: 1, pid:32, parent: 2
+[19875.374567] name: khubd, state: 1, pid:66, parent: 2
+[19875.374568] name: ata_sff, state: 1, pid:67, parent: 2
+[19875.374570] name: scsi_eh_0, state: 1, pid:69, parent: 2
+[19875.374571] name: scsi_tmf_0, state: 1, pid:70, parent: 2
+[19875.374573] name: scsi_eh_1, state: 1, pid:71, parent: 2
+[19875.374574] name: kworker/u2:2, state: 1, pid:72, parent: 2
+[19875.374576] name: scsi_tmf_1, state: 1, pid:73, parent: 2
+[19875.374577] name: scsi_eh_2, state: 1, pid:74, parent: 2
+[19875.374579] name: scsi_tmf_2, state: 1, pid:75, parent: 2
+[19875.374580] name: kworker/0:1H, state: 1, pid:83, parent: 2
+[19875.374582] name: jbd2/sda1-8, state: 1, pid:105, parent: 2
+[19875.374583] name: ext4-rsv-conver, state: 1, pid:106, parent: 2
+[19875.374585] name: kauditd, state: 1, pid:138, parent: 2
+[19875.374586] name: kpsmoused, state: 1, pid:185, parent: 2
+[19875.374588] name: iprt-VBoxWQueue, state: 1, pid:218, parent: 2
+[19875.374589] name: rpciod, state: 1, pid:393, parent: 2
+[19875.374591] name: nfsiod, state: 1, pid:395, parent: 2
+[19875.374592] name: cfg80211, state: 1, pid:493, parent: 2
+[19875.374594] name: kworker/0:2, state: 1, pid:3620, parent: 2
+[19875.374595] name: kworker/0:1, state: 1, pid:3626, parent: 2
+[19875.374597] name: kworker/0:0, state: 1, pid:3631, parent: 2
+[19875.374598] name: kworker/u2:1, state: 1, pid:3707, parent: 2
+[19875.374600] name: kworker/0:3, state: 1, pid:3738, parent: 2
+[19875.390055] Removing Module
