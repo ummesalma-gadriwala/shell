@@ -5,6 +5,18 @@
 #include <string.h>
 
 #define MAX_LINE 80
+#define ARRAY_SIZE 100
+
+void history(char *historyArray, int *histCount) {
+	int i, j;
+	for(i = 0; i < *histCount; i++){
+		if(i < 5){
+			printf("%d. ", (i+1));
+			//only prints the first char of the command
+			printf("%c\n", historyArray[i]);
+		}
+	}
+}
 
 int parse(char *buffer, char **args, int *child_with_parent) {
 	const char s[2] = " ";
@@ -44,6 +56,10 @@ int main(void) {
 	int should_run = 1;
 	int child_with_parent = 0;
 	char buffer[MAX_LINE]; // pointer to the first element of array
+
+	char historyArray[ARRAY_SIZE];
+	int histCount = 0;	
+
 	pid_t pid;
 	do {
 		printf("osh>");
@@ -59,7 +75,22 @@ int main(void) {
 		//printf("end of args: %s\n", args[count]);
 		if (strcmp(args[0], "exit") == 0) {
 			should_run = 0;
+		} else if (strcmp(args[0], "history") == 0) {
+			if (histCount == 0) {
+				printf("\nNo command in the history\n");
+			} else {
+				//printf("", histCount);
+				history(historyArray, &histCount);
+			}
+			
 		} else {
+			int i;
+			for(i = 4; i > 0; i--) {
+				historyArray[histCount] = historyArray[histCount-1];
+			}
+			//printf("\n%s\n", args[0]);
+			historyArray[0] = *(args[0]);
+			histCount++;
 	/**
 	* (1) Fork child process using fork()
 	* (2) The child process will invoke execvp()
@@ -80,3 +111,4 @@ int main(void) {
 	} while (should_run);
 	return 0;
 }
+
