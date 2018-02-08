@@ -9,12 +9,10 @@
 
 void history(char *historyArray, int *histCount) {
 	int i, j;
-	for(i = 0; i < *histCount; i++){
-		if(i < 5){
-			printf("%d. ", (i+1));
-			//only prints the first char of the command
-			printf("%c\n", historyArray[i]);
-		}
+	for(i = *histCount; i > *histCount-5; i--){
+		printf("%d. ", (i));
+		//only prints the first char of the command
+		printf("%c\n", historyArray[i]);
 	}
 }
 
@@ -85,10 +83,10 @@ int main(void) {
 			
 		} else {
 			int i;
-			for(i = 4; i > 0; i--) {
+			for(i = ARRAY_SIZE-1; i > 0; i--) {
 				historyArray[histCount] = historyArray[histCount-1];
 			}
-			//printf("\n%s\n", args[0]);
+			printf("\n%s\n", args[0]);
 			historyArray[0] = *(args[0]);
 			histCount++;
 	/**
