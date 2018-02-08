@@ -7,12 +7,11 @@
 #define MAX_LINE 80
 #define ARRAY_SIZE 100
 
-void history(char *historyArray, int *histCount) {
-	int i, j;
-	for(i = *histCount; i > *histCount-5; i--){
-		printf("%d. ", (i));
+void history(char **historyArray, int *histCount) {
+	int i;
+	for(i = 0; i < *histCount; i++){
 		//only prints the first char of the command
-		printf("%c\n", historyArray[i]);
+		printf("%d. %s\n", i, historyArray[i]);
 	}
 }
 
@@ -55,7 +54,7 @@ int main(void) {
 	int child_with_parent = 0;
 	char buffer[MAX_LINE]; // pointer to the first element of array
 
-	char historyArray[ARRAY_SIZE];
+	char *historyArray[ARRAY_SIZE];
 	int histCount = 0;	
 
 	pid_t pid;
@@ -71,6 +70,7 @@ int main(void) {
 		count = parse(buffer, args, &child_with_parent);
 		//printf("count: %d\n",count);
 		//printf("end of args: %s\n", args[count]);
+		// add command to history array
 		if (strcmp(args[0], "exit") == 0) {
 			should_run = 0;
 		} else if (strcmp(args[0], "history") == 0) {
@@ -87,7 +87,7 @@ int main(void) {
 				historyArray[histCount] = historyArray[histCount-1];
 			}
 			printf("\n%s\n", args[0]);
-			historyArray[0] = *(args[0]);
+			historyArray[0] = (args[0]);
 			histCount++;
 	/**
 	* (1) Fork child process using fork()
