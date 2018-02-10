@@ -96,12 +96,12 @@ int main(void) {
 			} else {
 				int num = split[1] - '0';
 				printf("num: %d\n", num);
-				if (num > histCount || num <= 0 || num < (histCount - 5)) {
+				if (num > histCount || num <= 0 || num < (histCount - 4)) {
 					printf("Count:%d\n", histCount);
 					printf("No such command in history\n");
 					continue;
 				} else {
-					strcpy(buffer, historyArray[ARRAY_SIZE-num]);
+					strcpy(buffer, historyArray[ARRAY_SIZE-1-(histCount-num)]);
 				}
 			}	
 		}
