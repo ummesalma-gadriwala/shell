@@ -83,7 +83,7 @@ int main(void) {
 			continue;
 		}
 		if (buffer[0] == '!') { 
-					// history requested		
+		// history requested		
 			//printf("args: %s",args[0]);
 			char split [MAX_LINE];
 			strcpy(split,args[0]);
@@ -96,9 +96,10 @@ int main(void) {
 			} else {
 				int num = split[1] - '0';
 				printf("num: %d\n", num);
-				if (num > histCount || num < 0 || num > 5) {
-					printf("Count:%d\n",histCount);
+				if (num > histCount || num <= 0 || num < (histCount - 5)) {
+					printf("Count:%d\n", histCount);
 					printf("No such command in history\n");
+					continue;
 				} else {
 					strcpy(buffer, historyArray[ARRAY_SIZE-num]);
 				}
@@ -115,8 +116,6 @@ int main(void) {
 	* (3) if command included &, parent will invoke wait()
 	*/		
 			if (strcmp(historyCommand, "history") != 0 && strcmp(historyCommand, "!!") != 0) {
-				//this still doesn't work
-				//printf("historyCommand: %c\n", historyCommand[1]);
 				if(!isdigit(historyCommand[1])) {
 					// do not add history to array
 					// shift everything in historyArray back by 1
@@ -144,10 +143,6 @@ int main(void) {
 					should_run = 0;
 					continue;
 				} else {
-					// regular command
-					// update array
-					//update(historyArray, historyCommand);
-					//histCount++;
 					// run command
 					int status = execvp(args[0], args);
 					if (status == -1) {
