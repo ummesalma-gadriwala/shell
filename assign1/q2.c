@@ -3,6 +3,7 @@
 #include <stdio.h>
 #include <unistd.h>
 #include <string.h>
+#include <stdlib.h>
 
 #define MAX_LINE 80
 #define ARRAY_SIZE 5
@@ -22,6 +23,9 @@ void update(char **historyArray, char *historyCommand) {
 		historyArray[i] = historyArray[i+1];
 	}
 	// add most recent command into history
+	//printf("nn");
+	//strcpy(historyArray[ARRAY_SIZE-1], historyCommand);
+	//printf(&historyCommand);
 	historyArray[ARRAY_SIZE-1] = historyCommand;
 	int k;
 	for (k = 0; k < 5; k++) {
@@ -104,7 +108,21 @@ int main(void) {
 	* (2) The child process will invoke execvp()
 	* (3) if command included &, parent will invoke wait()
 	*/	
-			
+			// shift everything in historyArray back by 1
+			int i;
+			for (i = 0; i < ARRAY_SIZE; i++) {
+				historyArray[i] = historyArray[i+1];
+			}
+			// add most recent command into history
+			//historyArray[ARRAY_SIZE-1] = historyCommand;
+			historyArray[ARRAY_SIZE-1] = malloc(strlen(historyCommand) + 1);
+			strcpy(historyArray[ARRAY_SIZE-1], historyCommand);
+			int k;
+			for (k = 0; k < 5; k++) {
+				printf("array %d: %s\n", k, historyArray[k]);
+			}
+			histCount++;
+
 			pid = fork();
 			if (pid == 0) { // child process
 				if (strcmp(args[0], "history") == 0) { 
@@ -130,8 +148,6 @@ int main(void) {
 					}
 				}
 			} else {	// parent process
-				update(historyArray, historyCommand);
-				histCount++;
 				if (child_with_parent == 0)
 					wait();
 			}
