@@ -83,8 +83,7 @@ int main(void) {
 			continue;
 		}
 		if (buffer[0] == '!') { 
-		// history requested		
-			//printf("args: %s",args[0]);
+		//history requested		
 			char split [MAX_LINE];
 			strcpy(split,args[0]);
 			if(split[1] == '!'){
@@ -95,9 +94,7 @@ int main(void) {
 				}
 			} else {
 				int num = split[1] - '0';
-				printf("num: %d\n", num);
 				if (num > histCount || num <= 0 || num < (histCount - 4)) {
-					printf("Count:%d\n", histCount);
 					printf("No such command in history\n");
 					continue;
 				} else {
@@ -117,7 +114,7 @@ int main(void) {
 	*/		
 			if (strcmp(historyCommand, "history") != 0 && strcmp(historyCommand, "!!") != 0) {
 				if(!isdigit(historyCommand[1])) {
-					// do not add history to array
+					// do not add `history` command to array
 					// shift everything in historyArray back by 1
 					int i;
 					for (i = 0; i < ARRAY_SIZE; i++) {
