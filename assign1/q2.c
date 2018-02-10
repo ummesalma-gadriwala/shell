@@ -5,12 +5,11 @@
 #include <string.h>
 
 #define MAX_LINE 80
-#define ARRAY_SIZE 100
+#define ARRAY_SIZE 5
 
 void history(char **historyArray, int *histCount) {
 	int i;
-	for(i = 0; i < *histCount; i++){
-		//only prints the first char of the command
+	for(i = 0; i < *histCount; i++) {
 		printf("%d. %s\n", i, historyArray[i]);
 	}
 }
@@ -53,7 +52,7 @@ int main(void) {
 	int should_run = 1;
 	int child_with_parent = 0;
 	char buffer[MAX_LINE]; // pointer to the first element of array
-
+	char historyCommand[MAX_LINE];
 	char *historyArray[ARRAY_SIZE];
 	int histCount = 0;	
 
@@ -62,8 +61,8 @@ int main(void) {
 		printf("osh>");
 		fgets(buffer, sizeof(buffer), stdin);
 		fflush(stdout);
-		if (buffer[0] == '\n') {
-			// loop back
+		strcpy(historyCommand, buffer); // save command to store into history later
+		if (buffer[0] == '\n') { // loop back
 			continue;
 		}
 		int count;
@@ -75,19 +74,24 @@ int main(void) {
 			should_run = 0;
 		} else if (strcmp(args[0], "history") == 0) {
 			if (histCount == 0) {
-				printf("\nNo command in the history\n");
+				printf("No command in the history\n");
 			} else {
-				//printf("", histCount);
+				// historyArray has all strings equal to history
+				// WHAT IS HAPPENING HERE?
+				printf("what about here: %s\n", historyArray[0]);
 				history(historyArray, &histCount);
 			}
 			
 		} else {
+			// shift everything in historyArray back by 1
 			int i;
 			for(i = ARRAY_SIZE-1; i > 0; i--) {
 				historyArray[histCount] = historyArray[histCount-1];
 			}
-			printf("\n%s\n", args[0]);
-			historyArray[0] = (args[0]);
+			
+			// add most recent command into history
+			historyArray[0] = historyCommand;
+			printf("history: %s\n", historyArray[0]);
 			histCount++;
 	/**
 	* (1) Fork child process using fork()
@@ -98,9 +102,11 @@ int main(void) {
 			pid = fork();
 			if (pid == 0) { // child process
 				int status = execvp(args[0], args);
-				if (status == -1)
+				if (status == -1) {
 					printf("Error occured\n");
+					should_run = 0;
 					continue;
+				}
 			} else {	// parent process 
 				if (child_with_parent == 0)
 					wait();
