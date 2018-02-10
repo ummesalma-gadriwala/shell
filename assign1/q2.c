@@ -7,10 +7,41 @@
 #define MAX_LINE 80
 #define ARRAY_SIZE 5
 
-void history(char **historyArray, int *histCount) {
+void removeLastChar(char *s)
+{
+     int length;
+     length = strlen(s);//Get length of string
+     s[length - 1] = '\0';//Set next to last char to null
+     return;
+}
+
+void update(char **historyArray, char *historyCommand) {
+	// shift everything in historyArray back by 1
 	int i;
-	for(i = 0; i < *histCount; i++) {
-		printf("%d. %s\n", i, historyArray[i]);
+	for (i = 0; i < ARRAY_SIZE; i++) {
+		historyArray[i] = historyArray[i+1];
+	}
+	// add most recent command into history
+	historyArray[ARRAY_SIZE-1] = historyCommand;
+	int k;
+	for (k = 0; k < 5; k++) {
+		printf("array %d: %s\n", k, historyArray[k]);
+	}
+}
+
+// prints out the contents of historyArray in reverse order
+void history(char **historyArray, int *histCount) {
+	int i; int j = *histCount;
+	if (*histCount < ARRAY_SIZE) {
+		for(i = (ARRAY_SIZE - *histCount); i < ARRAY_SIZE; i++) {
+			printf("%d. %s\n", j, historyArray[i]);
+			j--;
+		}
+	} else {
+		for(i = ARRAY_SIZE - 1; i >= 0; i--) {
+			printf("%d. %s\n", j, historyArray[i]);
+			j--;
+		}
 	}
 }
 
@@ -19,9 +50,7 @@ int parse(char *buffer, char **args, int *child_with_parent) {
    	char *token;
 	int count = 0;
    	token = strtok(buffer, s);
-   	//printf("command: ");
    	while (token != NULL) {
-   		//printf("%s", token);
    		*args = token;
    		*args++;
    		count++;
@@ -33,7 +62,6 @@ int parse(char *buffer, char **args, int *child_with_parent) {
    	token = *args;
    	const char t[2] = "\n";
    	token = strtok(*args, t);
-   	//printf("last char: %s\n", token);
    	if (*token == '&') {
    		*child_with_parent = 1;
    		// end like a c-string
@@ -48,12 +76,12 @@ int parse(char *buffer, char **args, int *child_with_parent) {
 }
 
 int main(void) {
-	char *args[MAX_LINE/2 +1]; // pointer to the pointer to the first element of array
+	char *args[MAX_LINE/2 +1]; // array of strings
 	int should_run = 1;
 	int child_with_parent = 0;
-	char buffer[MAX_LINE]; // pointer to the first element of array
+	char buffer[MAX_LINE]; // strings
 	char historyCommand[MAX_LINE];
-	char *historyArray[ARRAY_SIZE];
+	char *historyArray[ARRAY_SIZE] = {"1", "2", "3", "4", "5"};
 	int histCount = 0;	
 
 	pid_t pid;
@@ -62,52 +90,48 @@ int main(void) {
 		fgets(buffer, sizeof(buffer), stdin);
 		fflush(stdout);
 		strcpy(historyCommand, buffer); // save command to store into history later
+		removeLastChar(historyCommand); // removes \n at the end of string
 		if (buffer[0] == '\n') { // loop back
 			continue;
 		}
 		int count;
 		count = parse(buffer, args, &child_with_parent);
-		//printf("count: %d\n",count);
-		//printf("end of args: %s\n", args[count]);
-		// add command to history array
 		if (strcmp(args[0], "exit") == 0) {
 			should_run = 0;
-		} else if (strcmp(args[0], "history") == 0) {
-			if (histCount == 0) {
-				printf("No command in the history\n");
-			} else {
-				// historyArray has all strings equal to history
-				// WHAT IS HAPPENING HERE?
-				printf("what about here: %s\n", historyArray[0]);
-				history(historyArray, &histCount);
-			}
-			
 		} else {
-			// shift everything in historyArray back by 1
-			int i;
-			for(i = ARRAY_SIZE-1; i > 0; i--) {
-				historyArray[histCount] = historyArray[histCount-1];
-			}
-			
-			// add most recent command into history
-			historyArray[0] = historyCommand;
-			printf("history: %s\n", historyArray[0]);
-			histCount++;
 	/**
 	* (1) Fork child process using fork()
 	* (2) The child process will invoke execvp()
 	* (3) if command included &, parent will invoke wait()
 	*/	
-		
+			
 			pid = fork();
 			if (pid == 0) { // child process
-				int status = execvp(args[0], args);
-				if (status == -1) {
-					printf("Error occured\n");
+				if (strcmp(args[0], "history") == 0) { 
+					// history requested
+					if (histCount == 0) {
+						printf("No command in the history\n");
+					} else {
+						history(historyArray, &histCount);
+					}
 					should_run = 0;
 					continue;
+				} else {
+					// regular command
+					// update array
+					//update(historyArray, historyCommand);
+					//histCount++;
+					// run command
+					int status = execvp(args[0], args);
+					if (status == -1) {
+						printf("command not found\n");
+						should_run = 0;
+						continue;
+					}
 				}
-			} else {	// parent process 
+			} else {	// parent process
+				update(historyArray, historyCommand);
+				histCount++;
 				if (child_with_parent == 0)
 					wait();
 			}
