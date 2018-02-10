@@ -16,36 +16,20 @@ void removeLastChar(char *s)
      return;
 }
 
-void update(char **historyArray, char *historyCommand) {
-	// shift everything in historyArray back by 1
-	int i;
-	for (i = 0; i < ARRAY_SIZE; i++) {
-		historyArray[i] = historyArray[i+1];
-	}
-	// add most recent command into history
-	//printf("nn");
-	//strcpy(historyArray[ARRAY_SIZE-1], historyCommand);
-	//printf(&historyCommand);
-	historyArray[ARRAY_SIZE-1] = historyCommand;
-	int k;
-	for (k = 0; k < 5; k++) {
-		printf("array %d: %s\n", k, historyArray[k]);
-	}
-}
-
 // prints out the contents of historyArray in reverse order
 void history(char **historyArray, int *histCount) {
 	int i; int j = *histCount;
 	if (*histCount < ARRAY_SIZE) {
-		for(i = (ARRAY_SIZE - *histCount); i < ARRAY_SIZE; i++) {
-			printf("%d. %s\n", j, historyArray[i]);
+		j = ARRAY_SIZE - 1;
+		for (i = *histCount; i > 0; i--) {
+			printf("%d. %s\n", i, historyArray[j]);
 			j--;
 		}
-	} else {
-		for(i = ARRAY_SIZE - 1; i >= 0; i--) {
-			printf("%d. %s\n", j, historyArray[i]);
-			j--;
-		}
+		return;
+	}
+	for(i = ARRAY_SIZE - 1; i >= 0; i--) {
+		printf("%d. %s\n", j, historyArray[i]);
+		j--;
 	}
 }
 
