@@ -77,7 +77,7 @@ int main(void) {
 		printf("osh>");
 		fgets(buffer, sizeof(buffer), stdin);
 		fflush(stdout);
-		strcpy(historyCommand, buffer); // save command to store into history later
+		strcpy(historyCommand, buffer); // save command to store into history
 		removeLastChar(historyCommand); // removes \n at the end of string
 		if (buffer[0] == '\n') { // loop back
 			continue;
@@ -106,14 +106,14 @@ int main(void) {
 	* (2) The child process will invoke execvp()
 	* (3) if command included &, parent will invoke wait()
 	*/	
-			// shift everything in historyArray back by 1
-			int i;
-			for (i = 0; i < ARRAY_SIZE; i++) {
-				historyArray[i] = historyArray[i+1];
-			}
-			// add most recent command into history
-			//historyArray[ARRAY_SIZE-1] = historyCommand;
-			//if((strcmp(historyCommand,"history") != 0) && (strcmp(historyCommand,"!!") != 0) && (strcmp(historyCommand,"!%d") != 0)){
+			if (strcmp(args[0], "history") != 0) {
+			// do not add history to array
+				// shift everything in historyArray back by 1
+				int i;
+				for (i = 0; i < ARRAY_SIZE; i++) {
+					historyArray[i] = historyArray[i+1];
+				}
+				// add most recent command into history
 				historyArray[ARRAY_SIZE-1] = malloc(strlen(historyCommand) + 1);
 				strcpy(historyArray[ARRAY_SIZE-1], historyCommand);
 				int k;
@@ -121,7 +121,7 @@ int main(void) {
 					printf("array %d: %s\n", k, historyArray[k]);
 				}
 				histCount++;
-			//}
+			}
 
 			pid = fork();
 			if (pid == 0) { // child process
