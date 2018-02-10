@@ -92,20 +92,23 @@ int main(void) {
 	* (2) The child process will invoke execvp()
 	* (3) if command included &, parent will invoke wait()
 	*/	
-			// shift everything in historyArray back by 1
-			int i;
-			for (i = 0; i < ARRAY_SIZE; i++) {
-				historyArray[i] = historyArray[i+1];
+			if (strcmp(args[0], "history") != 0) {
+			// do not add `history` command to array
+				// shift everything in historyArray back by 1
+				int i;
+				for (i = 0; i < ARRAY_SIZE; i++) {
+					historyArray[i] = historyArray[i+1];
+				}
+				// add most recent command into history
+				historyArray[ARRAY_SIZE-1] = malloc(strlen(historyCommand) + 1);
+				strcpy(historyArray[ARRAY_SIZE-1], historyCommand);
+				int k;
+				for (k = 0; k < 5; k++) {
+					printf("array %d: %s\n", k, historyArray[k]);
+				}
+				histCount++;
 			}
-			// add most recent command into history
-			//historyArray[ARRAY_SIZE-1] = historyCommand;
-			historyArray[ARRAY_SIZE-1] = malloc(strlen(historyCommand) + 1);
-			strcpy(historyArray[ARRAY_SIZE-1], historyCommand);
-			int k;
-			for (k = 0; k < 5; k++) {
-				printf("array %d: %s\n", k, historyArray[k]);
-			}
-			histCount++;
+			
 
 			pid = fork();
 			if (pid == 0) { // child process
