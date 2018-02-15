@@ -2,8 +2,9 @@
 Simple UNIX shell
 By: Tasnim Noshin and Umme Salma Gadriwala
 
-Compile: gcc -o shell shell.c
-Run: ./shell
+Compile: `gcc -o shell shell.c`
+
+Run: `./shell`
 
 Implementation and Functionalities:
 1. Creates a child process using the fork() command to execute the command.
