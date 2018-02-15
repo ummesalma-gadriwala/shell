@@ -1,5 +1,6 @@
 # shell
 Simple UNIX shell
+
 By: Tasnim Noshin and Umme Salma Gadriwala
 
 Compile: `gcc -o shell shell.c`
